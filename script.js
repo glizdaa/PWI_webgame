@@ -12,16 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
         startGame();
     });
 
-    function startGame() {
-        cells.forEach(cell => {
-            cell.innerText = '';
-            cell.classList.remove("X", "O");
-            cell.addEventListener('click', handleCellClick, { once: true });
-        });
-        turn = true;
-        gameActive = true;
-        gameBoard.style.display = 'grid';
-    }
+	function startGame() {
+		cells.forEach(cell => {
+			cell.innerText = ''; // Czyści tekst w komórce
+			cell.classList.remove("X", "O"); // Usuwa klasy X i O, jeśli istnieją
+			cell.removeEventListener('click', handleCellClick); // Usuwa poprzednie nasłuchiwacze zdarzeń
+			cell.addEventListener('click', handleCellClick, { once: true }); // Dodaje nasłuchiwacz zdarzeń
+		});
+		turn = true; // Resetuje turę na początkową (X)
+		gameActive = true; // Ustawia grę jako aktywną
+		gameBoard.style.display = 'grid'; // Wyświetla planszę
+		gameBoard.style.pointerEvents = 'auto'; // Włącza klikalność planszy
+	}
 
     function handleCellClick(e) {
         if (!gameActive) return;

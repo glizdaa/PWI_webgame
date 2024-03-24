@@ -22,7 +22,3 @@
 .cell:hover {
     border-color: #4CAF50; /* Zmienia kolor obramowania na zielony podczas hover */
 }
-
-#restart-button {
-    display: block; /* Zmieni się na 'none' w resetGame() */
-}
