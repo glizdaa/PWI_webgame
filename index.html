@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kółko i Krzyżyk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <select id="mode-select">
+        <option value="single">Jeden Gracz</option>
+        <option value="multi">Dwóch Graczy</option>
+    </select>
+    <button id="start-button">Start Gry</button>
+    <button id="restart-button">Reset Gry</button>
+    <div id="gameBoard" style="display: none;">
+        <div class="row">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div class="row">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div class="row">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
