@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeSelect = document.getElementById('mode-select');
     const startButton = document.getElementById('start-button');
     const gameBoard = document.getElementById('gameBoard');
-    let turn = true; // true dla X, false dla O
-    let gameMode = ""; // "single" lub "multi"
+    let turn = true;
+    let gameMode = "";
     let gameActive = true;
 
     startButton.addEventListener('click', () => {
@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function startGame() {
 		cells.forEach(cell => {
-			cell.innerText = ''; // Czyści tekst w komórce
-			cell.classList.remove("X", "O"); // Usuwa klasy X i O, jeśli istnieją
-			cell.removeEventListener('click', handleCellClick); // Usuwa poprzednie nasłuchiwacze zdarzeń
-			cell.addEventListener('click', handleCellClick, { once: true }); // Dodaje nasłuchiwacz zdarzeń
+			cell.innerText = '';
+			cell.classList.remove("X", "O");
+			cell.removeEventListener('click', handleCellClick);
+			cell.addEventListener('click', handleCellClick, { once: true });
 		});
-		turn = true; // Resetuje turę na początkową (X)
-		gameActive = true; // Ustawia grę jako aktywną
-		gameBoard.style.display = 'grid'; // Wyświetla planszę
-		gameBoard.style.pointerEvents = 'auto'; // Włącza klikalność planszy
+		turn = true; // reset tury
+		gameActive = true;
+		gameBoard.style.display = 'grid';
+		gameBoard.style.pointerEvents = 'auto';
 	}
 
     function handleCellClick(e) {
@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         turn = !turn;
         if (gameMode === "single" && !turn) {
-            gameBoard.style.pointerEvents = 'none'; // Temporarily disable board clicks
+            gameBoard.style.pointerEvents = 'none';
             setTimeout(() => {
                 aiMove();
-                gameBoard.style.pointerEvents = 'auto'; // Re-enable board clicks
-            }, 400); // Daj AI czas na wykonanie ruchu
+                gameBoard.style.pointerEvents = 'auto';
+            }, 400); // timeout for AI to make a move (ms)
         }
     }
 
